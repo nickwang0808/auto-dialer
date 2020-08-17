@@ -1,0 +1,16 @@
+autodialer, enhance sales call process by automate the non essential tasks
+
+-goal workflow: extract contact info from VIN, generate call list with optimized/filtered notes list,
+-convert each customer into individual task, display task to client, only essential notes are displayed, 
+-click to dial all 3 contact info. 
+    -if NIS or NA, requene the task in 30min, if again reQ the task 
+    for afternoon. automatically record and analyze the call status to log call, at end of day, auto send
+    email and text
+    -if connect, user takes over, and log notes
+
+-upon completion of task, frontend send script to backend and update VIN 
+
+
+TODO:
+    =-get a mock database. I need name, cell, home, work, 
+    - build the ui up
