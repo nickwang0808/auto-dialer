@@ -4,29 +4,24 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {
-    background: "#858585",
+    background: "#f3f3f3",
   },
   alt: {
     background: "#ffffff",
   },
 });
 
-function Note(props) {
+function Note({ date, content, className }) {
   const classes = useStyles();
   return (
     <>
-      <Box className={classes.root} p={2}>
-        <Grid container direction="row">
+      <Box className={className} p={2}>
+        <Grid container direction="column">
           <Grid item>
-            <Box fontSize={12} mr={2}>
-              Jan 24, 2020
-            </Box>
+            <Box fontSize={12}>{date}</Box>
           </Grid>
           <Grid item>
-            <Box>
-              customer said he wanted a newer truck, not willing to do an app
-              yet,
-            </Box>
+            <Box>{content}</Box>
           </Grid>
         </Grid>
       </Box>
@@ -34,17 +29,20 @@ function Note(props) {
   );
 }
 
-function CallLogs(props) {
+function CallLogs({ data }) {
+  const classes = useStyles();
+
   return (
-    <>
-      <Box borderColor="grey.300" border={1}>
-        <Box m={2}>Last Contact Attempt: {"24"}</Box>
-        <Note />
-        <Note />
-        <Note />
-        <Note />
-      </Box>
-    </>
+    <Box borderColor="grey.300" border={1} overflow="auto" height="60vh">
+      <Box m={2}>Last Contact Attempt: {"24"}</Box>
+      {data.map((d) => (
+        <Note
+          date={d.date}
+          content={d.content}
+          className={data.indexOf(d) % 2 === 0 ? classes.root : classes.alt}
+        />
+      ))}
+    </Box>
   );
 }
 

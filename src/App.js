@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Info from "./components/info";
 import { CssBaseline, Grid, Container, Box } from "@material-ui/core";
 import CallLogs from "./components/calllogs";
@@ -8,6 +8,14 @@ import EmailBox from "./components/email";
 import Message from "./components/message";
 
 function App() {
+  const [loggedNotes, setLoggedNotes] = useState([]);
+
+  useEffect(async () => {
+    const response = await fetch("http://localhost:3000/notes");
+    const loggedNotes = await response.json();
+    setLoggedNotes(loggedNotes);
+  }, []);
+
   return (
     <>
       <TopBar />
@@ -20,7 +28,7 @@ function App() {
                 <Info />
               </Grid>
               <Grid item xs>
-                <CallLogs />
+                <CallLogs data={loggedNotes} />
               </Grid>
             </Grid>
 
