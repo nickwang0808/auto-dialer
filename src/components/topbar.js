@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TopBar({ handleNext }) {
+export default function TopBar({ handleNext, handleStart, handlePause }) {
   const classes = useStyles();
 
   return (
@@ -38,10 +38,10 @@ export default function TopBar({ handleNext }) {
             Dashboard
           </Typography>
           <Box className={classes.root} />
-          <IconButton>
+          <IconButton onClick={handleStart}>
             <PlayCircleFilled style={{ color: grey[50] }} />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={handlePause}>
             <PauseCircleFilled style={{ color: grey[50] }} />
           </IconButton>
           <Button variant="contained" color="secondary" onClick={handleNext}>

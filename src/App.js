@@ -6,12 +6,14 @@ import TopBar from "./components/topbar";
 import Logging from "./components/logging";
 import EmailBox from "./components/email";
 import Message from "./components/message";
+import testDial from "./testdial";
 
 function App() {
   const [loggedNotes, setLoggedNotes] = useState([]);
   const [customers, setCustomers] = useState([]);
   const [date, setDate] = useState();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [pause, setPause] = useState(false);
 
   useEffect(() => {
     let today = new Date().toISOString().slice(0, 10);
@@ -84,9 +86,25 @@ function App() {
     setCurrentIndex(currentIndexCopy + 1);
   };
 
+  const handleDialerStart = () => {
+    setPause(false);
+    if (pause !== true) {
+      customers.forEach((c) => {
+        testDial(c);
+      });
+    }
+  };
+
+  const handlePause = () => {
+    setPause(true);
+  };
   return (
     <>
-      <TopBar handleNext={handleNext} />
+      <TopBar
+        handleNext={handleNext}
+        handlePause={handlePause}
+        handleStart={handleDialerStart}
+      />
       <Container>
         <Box py={2}>
           <CssBaseline />
