@@ -37,6 +37,7 @@ function CallLogs({ data }) {
       <Box m={2}>Last Contact Attempt: {"24"}</Box>
       {data.map((d) => (
         <Note
+          key={d.content}
           date={d.date}
           content={d.content}
           className={data.indexOf(d) % 2 === 0 ? classes.root : classes.alt}

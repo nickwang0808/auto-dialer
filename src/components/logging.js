@@ -12,7 +12,7 @@ function Logging(props) {
             <ButtonGroup
               variant="outlined"
               color="primary"
-              fullWidth="true"
+              fullWidth
               size="small"
             >
               <Button onClick={props.loadNotInt}>Not int</Button>

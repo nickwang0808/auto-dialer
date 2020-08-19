@@ -9,19 +9,34 @@ import Message from "./components/message";
 
 function App() {
   const [loggedNotes, setLoggedNotes] = useState([]);
+  const [customers, setCustomers] = useState([]);
   const [date, setDate] = useState();
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     let today = new Date().toISOString().slice(0, 10);
     setDate(today);
   }, []);
 
-  useEffect(async () => {
-    const response = await fetch("http://localhost:3000/notes");
-    const loggedNotes = await response.json();
-    setLoggedNotes(loggedNotes);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("http://localhost:3000/customer");
+      const customerList = await response.json();
+      setCustomers(customerList);
+    };
+    fetchData();
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("http://localhost:3000/notes");
+      const loggedNotes = await response.json();
+      setLoggedNotes(loggedNotes);
+    };
+    fetchData();
+  }, []);
+
+  // ---- Note logging Button functions
   const loadNotInt = () => {
     const newNote = {
       date: [date],
@@ -61,18 +76,27 @@ function App() {
     loggedNotesCopy.unshift(newNote);
     setLoggedNotes(loggedNotesCopy);
   };
+  // ---- end of Note logging Button functions
+
+  const handleNext = () => {
+    console.log("Next button clicked");
+    const currentIndexCopy = currentIndex;
+    setCurrentIndex(currentIndexCopy + 1);
+  };
 
   return (
     <>
-      <TopBar />
+      <TopBar handleNext={handleNext} />
       <Container>
         <Box py={2}>
           <CssBaseline />
+
           <Grid container spacing={4}>
             <Grid container direction="column" item xs>
               <Grid item xs>
-                <Info />
+                <Info customer={customers[currentIndex]} />
               </Grid>
+
               <Grid item xs>
                 <CallLogs data={loggedNotes} />
               </Grid>

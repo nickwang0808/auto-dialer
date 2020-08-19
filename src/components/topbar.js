@@ -8,7 +8,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import PlayCircleFilled from "@material-ui/icons/PlayCircleFilled";
 import PauseCircleFilled from "@material-ui/icons/PauseCircleFilled";
 import { grey } from "@material-ui/core/colors";
-import { Box } from "@material-ui/core";
+import { Box, Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TopBar() {
+export default function TopBar({ handleNext }) {
   const classes = useStyles();
 
   return (
@@ -44,6 +44,9 @@ export default function TopBar() {
           <IconButton>
             <PauseCircleFilled style={{ color: grey[50] }} />
           </IconButton>
+          <Button variant="contained" color="secondary" onClick={handleNext}>
+            Next
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

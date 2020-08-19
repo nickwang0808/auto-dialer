@@ -13,4 +13,11 @@ autodialer, enhance sales call process by automate the non essential tasks
 
 TODO:
     =-get a mock database. I need name, cell, home, work, 
-    - build the ui up
+    =- build the ui up
+    - setup customer database
+
+
+
+notes:
+    - send customer info to frontend app, make a button for next 
+    customer

@@ -13,7 +13,7 @@ function Message(props) {
                 orientation="vertical"
                 size="small"
                 color="primary"
-                fullWidth="true"
+                fullWidth
               >
                 <Button>Text 1</Button>
                 <Button>Text 2</Button>
@@ -26,7 +26,7 @@ function Message(props) {
                 orientation="vertical"
                 size="small"
                 color="primary"
-                fullWidth="true"
+                fullWidth
               >
                 <Button>Text 4</Button>
                 <Button>Text 5</Button>

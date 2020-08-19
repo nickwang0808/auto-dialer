@@ -13,7 +13,7 @@ function EmailBox(props) {
                 orientation="vertical"
                 size="small"
                 color="primary"
-                fullWidth="true"
+                fullWidth
               >
                 <Button>Email 1</Button>
                 <Button>Email 2</Button>
@@ -26,7 +26,7 @@ function EmailBox(props) {
                 orientation="vertical"
                 size="small"
                 color="primary"
-                fullWidth="true"
+                fullWidth
               >
                 <Button>Email 4</Button>
                 <Button>Email 5</Button>
