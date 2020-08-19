@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Grid, Button, TextField, ButtonGroup } from "@material-ui/core";
 
 function Logging(props) {
+  const [callNote, setCallNote] = useState();
+
   return (
     <>
       <Box padding={2}>
@@ -13,10 +15,10 @@ function Logging(props) {
               fullWidth="true"
               size="small"
             >
-              <Button>Not int</Button>
-              <Button>Call Back</Button>
-              <Button>Hung up</Button>
-              <Button>Wrong num</Button>
+              <Button onClick={props.loadNotInt}>Not int</Button>
+              <Button onClick={props.loadCallBack}>Call Back</Button>
+              <Button onClick={props.loadHungUp}>Hung up</Button>
+              <Button onClick={props.loadWrongNum}>Wrong num</Button>
             </ButtonGroup>
           </Grid>
           <Grid item>
