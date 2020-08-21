@@ -6,14 +6,14 @@ import TopBar from "./components/topbar";
 import Logging from "./components/logging";
 import EmailBox from "./components/email";
 import Message from "./components/message";
-import testDial from "./testdial";
+import callCustomer from "./testdial";
 
 function App() {
   const [loggedNotes, setLoggedNotes] = useState([]);
   const [customers, setCustomers] = useState([]);
   const [date, setDate] = useState();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [pause, setPause] = useState(false);
+  const [calling, setCalling] = useState(false);
 
   useEffect(() => {
     let today = new Date().toISOString().slice(0, 10);
@@ -81,29 +81,61 @@ function App() {
   // ---- end of Note logging Button functions
 
   const handleNext = () => {
-    console.log("Next button clicked");
+    console.log("Next Customer");
     const currentIndexCopy = currentIndex;
     setCurrentIndex(currentIndexCopy + 1);
   };
 
-  const handleDialerStart = () => {
-    setPause(false);
-    if (pause !== true) {
-      customers.forEach((c) => {
-        testDial(c);
-      });
-    }
-  };
+  // const handleDialerStart = async () => {
+  //   for (let i = currentIndex; i < customers.length; i++) {
+  //     const currentCustomer = customers[i];
+
+  //     const numbersToCall = [
+  //       { num: currentCustomer.Cell, attempts: 3 },
+  //       { num: currentCustomer.Home, attempts: 3 },
+  //       { num: currentCustomer.Work, attempts: 1 },
+  //     ];
+
+  //     await callCustomer(currentCustomer.Name, numbersToCall);
+  //     console.log("this customer is called");
+  //     // dont forget to watch for array out of range
+  //   }
+  // };
+
+  //
+  useEffect(() => {
+    const run = async () => {
+      if (calling) {
+        const currentCustomer = customers[currentIndex];
+
+        const numbersToCall = [
+          { num: currentCustomer.Cell, attempts: 3 },
+          { num: currentCustomer.Home, attempts: 3 },
+          { num: currentCustomer.Work, attempts: 1 },
+        ];
+
+        await callCustomer(currentCustomer.Name, numbersToCall);
+        console.log("this customer is called");
+        handleNext();
+      }
+    };
+    run();
+  });
 
   const handlePause = () => {
-    setPause(true);
+    setCalling(false);
   };
+
+  const handleStart = () => {
+    setCalling(true);
+  };
+
   return (
     <>
       <TopBar
         handleNext={handleNext}
         handlePause={handlePause}
-        handleStart={handleDialerStart}
+        handleStart={handleStart}
       />
       <Container>
         <Box py={2}>

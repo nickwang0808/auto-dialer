@@ -18,7 +18,7 @@ function Info({ customer }) {
             </Grid>
             <Grid container direction="column" item xs spacing={0}>
               <Box>{`Address: ${customer.Address}`}</Box>
-              <Box>{`Address: S7G 1tL`}</Box>
+              <Box>{`Postal: S7G 1tL`}</Box>
             </Grid>
           </Grid>
         </Box>
