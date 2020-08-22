@@ -99,15 +99,8 @@ function App() {
           { num: currentCustomer.Home, attempts: 3 },
           { num: currentCustomer.Work, attempts: 1 },
         ];
-        const handleCallInfoDisplay = (info) => {
-          setCallInfo(info);
-        };
 
-        await callCustomer(
-          currentCustomer.Name,
-          numbersToCall,
-          handleCallInfoDisplay
-        );
+        await callCustomer(currentCustomer.Name, numbersToCall);
         console.log("this customer is called");
         handleNext();
       }

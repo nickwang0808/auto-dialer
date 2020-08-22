@@ -4,11 +4,9 @@ const wait = (time) => {
   return new Promise((resolve) => setTimeout(resolve, time));
 };
 
-async function callNumber(name, number, attempts, displayCallInfo) {
+async function callNumber(name, number, attempts) {
   const call = (counter) => {
     console.log(`Calling ${name}: ${number} x ${counter}`);
-    // this function will generate a string as prop
-    // displayCallInfo(`Calling ${name}: ${number} x ${counter}`);
   };
 
   const start = async () => {
@@ -21,18 +19,9 @@ async function callNumber(name, number, attempts, displayCallInfo) {
 }
 
 // this function calls all numbers of a customer
-export default async function callCustomer(
-  name,
-  numbersToCall,
-  displayCallInfo
-) {
+export default async function callCustomer(name, numbersToCall) {
   // had to declare testDial() as async and then call it with await.
   for (let i = 0; i < numbersToCall.length; i++) {
-    await callNumber(
-      name,
-      numbersToCall[i].num,
-      numbersToCall[i].attempts,
-      displayCallInfo
-    );
+    await callNumber(name, numbersToCall[i].num, numbersToCall[i].attempts);
   }
 }
