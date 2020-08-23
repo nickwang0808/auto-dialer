@@ -9,6 +9,7 @@ import PlayCircleFilled from "@material-ui/icons/PlayCircleFilled";
 import PauseCircleFilled from "@material-ui/icons/PauseCircleFilled";
 import { grey } from "@material-ui/core/colors";
 import { Box, Button } from "@material-ui/core";
+import "animate.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +20,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TopBar({ handleNext, handleStart, handlePause }) {
+export default function TopBar({
+  handleNext,
+  handleStart,
+  handlePause,
+  callStatus,
+}) {
   const classes = useStyles();
 
   return (
@@ -38,6 +44,11 @@ export default function TopBar({ handleNext, handleStart, handlePause }) {
             Dashboard
           </Typography>
           <Box className={classes.root} />
+          <Box className="animate__animated animate__pulse animate__infinite">
+            {callStatus
+              ? "calling, press cltr + shft + J to view call logs"
+              : ""}
+          </Box>
           <IconButton onClick={handleStart}>
             <PlayCircleFilled style={{ color: grey[50] }} />
           </IconButton>

@@ -23,8 +23,12 @@ function App() {
   }, []);
 
   useEffect(() => {
+    // use local files for now
     const fetchData = async () => {
-      const response = await fetch("http://localhost:3000/customer");
+      // const response = await fetch(
+      //   "https://storage.googleapis.com/nickwangstorage/jsonfiles/democustomer.json"
+      // );
+      const response = await fetch("customers.json");
       const customerList = await response.json();
       setCustomers(customerList);
     };
@@ -32,8 +36,10 @@ function App() {
   }, []);
 
   useEffect(() => {
+    // use local files for now
     const fetchData = async () => {
-      const response = await fetch("http://localhost:3000/notes");
+      // const response = await fetch("http://localhost:3000/notes");
+      const response = await fetch("notes.json");
       const loggedNotes = await response.json();
       setLoggedNotes(loggedNotes);
     };
@@ -122,6 +128,7 @@ function App() {
         handleNext={handleNext}
         handlePause={handlePause}
         handleStart={handleStart}
+        callStatus={calling}
       />
       <Container>
         <Box py={2}>
