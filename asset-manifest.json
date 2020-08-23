@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/auto-dialer/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/auto-dialer/static/js/main.df936fba.chunk.js",
-    "main.js.map": "/auto-dialer/static/js/main.df936fba.chunk.js.map",
+    "main.js": "/auto-dialer/static/js/main.6c2e05cf.chunk.js",
+    "main.js.map": "/auto-dialer/static/js/main.6c2e05cf.chunk.js.map",
     "runtime-main.js": "/auto-dialer/static/js/runtime-main.9d5dee77.js",
     "runtime-main.js.map": "/auto-dialer/static/js/runtime-main.9d5dee77.js.map",
     "static/css/2.e2dd9b0a.chunk.css": "/auto-dialer/static/css/2.e2dd9b0a.chunk.css",
-    "static/js/2.17af7e1c.chunk.js": "/auto-dialer/static/js/2.17af7e1c.chunk.js",
-    "static/js/2.17af7e1c.chunk.js.map": "/auto-dialer/static/js/2.17af7e1c.chunk.js.map",
+    "static/js/2.2fbda835.chunk.js": "/auto-dialer/static/js/2.2fbda835.chunk.js",
+    "static/js/2.2fbda835.chunk.js.map": "/auto-dialer/static/js/2.2fbda835.chunk.js.map",
     "index.html": "/auto-dialer/index.html",
-    "precache-manifest.e249fb129a6438a517c4c6f19cb5cdc3.js": "/auto-dialer/precache-manifest.e249fb129a6438a517c4c6f19cb5cdc3.js",
+    "precache-manifest.caa184c0e8e850e6c63d7f5d0e256817.js": "/auto-dialer/precache-manifest.caa184c0e8e850e6c63d7f5d0e256817.js",
     "service-worker.js": "/auto-dialer/service-worker.js",
     "static/css/2.e2dd9b0a.chunk.css.map": "/auto-dialer/static/css/2.e2dd9b0a.chunk.css.map",
     "static/css/main.5ecd60fb.chunk.css.map": "/auto-dialer/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.17af7e1c.chunk.js.LICENSE.txt": "/auto-dialer/static/js/2.17af7e1c.chunk.js.LICENSE.txt"
+    "static/js/2.2fbda835.chunk.js.LICENSE.txt": "/auto-dialer/static/js/2.2fbda835.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9d5dee77.js",
     "static/css/2.e2dd9b0a.chunk.css",
-    "static/js/2.17af7e1c.chunk.js",
+    "static/js/2.2fbda835.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.df936fba.chunk.js"
+    "static/js/main.6c2e05cf.chunk.js"
   ]
 }
