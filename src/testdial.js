@@ -1,16 +1,14 @@
-const waitTime = 100;
+const waitTime = 1000;
 
 const wait = (time) => {
   return new Promise((resolve) => setTimeout(resolve, time));
 };
 
-// using a wait() to put a delay in between each call();
 async function callNumber(name, number, attempts) {
   const call = (counter) => {
     console.log(`Calling ${name}: ${number} x ${counter}`);
   };
 
-  // do I really need to make a dummy function here? Very confused with async await
   const start = async () => {
     for (let innerI = 0; innerI < attempts; innerI++) {
       call(innerI + 1);

@@ -7,6 +7,7 @@ import Logging from "./components/logging";
 import EmailBox from "./components/email";
 import Message from "./components/message";
 import callCustomer from "./testdial";
+import DialBox from "./components/dialbox";
 
 function App() {
   const [loggedNotes, setLoggedNotes] = useState([]);
@@ -14,6 +15,7 @@ function App() {
   const [date, setDate] = useState();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [calling, setCalling] = useState(false);
+  const [callInfo, setCallInfo] = useState("");
 
   useEffect(() => {
     let today = new Date().toISOString().slice(0, 10);
@@ -86,23 +88,7 @@ function App() {
     setCurrentIndex(currentIndexCopy + 1);
   };
 
-  // const handleDialerStart = async () => {
-  //   for (let i = currentIndex; i < customers.length; i++) {
-  //     const currentCustomer = customers[i];
-
-  //     const numbersToCall = [
-  //       { num: currentCustomer.Cell, attempts: 3 },
-  //       { num: currentCustomer.Home, attempts: 3 },
-  //       { num: currentCustomer.Work, attempts: 1 },
-  //     ];
-
-  //     await callCustomer(currentCustomer.Name, numbersToCall);
-  //     console.log("this customer is called");
-  //     // dont forget to watch for array out of range
-  //   }
-  // };
-
-  //
+  // this code calls the current customer and go to next customer
   useEffect(() => {
     const run = async () => {
       if (calling) {
@@ -153,6 +139,10 @@ function App() {
             </Grid>
 
             <Grid container direction="column" item xs spacing={2}>
+              {/* <Grid item xs>
+                <DialBox callInfo={callInfo} />
+              </Grid> */}
+
               <Grid item xs>
                 <Logging
                   loadCallBack={loadCallBack}
