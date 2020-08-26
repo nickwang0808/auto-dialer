@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Info from "./components/info";
 import { CssBaseline, Grid, Container, Box } from "@material-ui/core";
 import CallLogs from "./components/calllogs";
@@ -14,7 +14,6 @@ function App() {
   const [date, setDate] = useState();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [calling, setCalling] = useState(false);
-  const [callInfo, setCallInfo] = useState("");
 
   useEffect(() => {
     let today = new Date().toISOString().slice(0, 10);
@@ -26,10 +25,15 @@ function App() {
     const fetchData = async () => {
       // something is up, in dev mode, had to add ./custoemr.json for it to work a
       //and then it just worked all the sudden even without it
-      const response = await fetch("auto-dialer/customers.json");
-      console.log(response);
-      const customerList = await response.json();
-      setCustomers(customerList);
+      try {
+        var response = await fetch("auto-dialer/customers.json");
+        var customerList = await response.json();
+      } catch {
+        response = await fetch("customers.json");
+        customerList = await response.json();
+      } finally {
+        setCustomers(customerList);
+      }
     };
     fetchData();
   }, []);
@@ -37,8 +41,13 @@ function App() {
   useEffect(() => {
     // use local files for now
     const fetchData = async () => {
-      const response = await fetch("auto-dialer/notes.json");
-      const loggedNotes = await response.json();
+      try {
+        var response = await fetch("auto-dialer/notes.json");
+        var loggedNotes = await response.json();
+      } catch {
+        response = await fetch("notes.json");
+        loggedNotes = await response.json();
+      }
       setLoggedNotes(loggedNotes);
     };
     fetchData();
