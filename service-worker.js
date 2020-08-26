@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/auto-dialer/precache-manifest.5ad4a3302729d59b2d406a0c838972fb.js"
+  "/auto-dialer/precache-manifest.cb708f153a540e4573d9ac96312173ae.js"
 );
 
 self.addEventListener('message', (event) => {

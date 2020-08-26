@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "10b8baca0e95b8558a00e3f733f95d65",
+    "revision": "a29ed829cb58443b267e309726b44710",
     "url": "/auto-dialer/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/auto-dialer/static/css/2.e2dd9b0a.chunk.css"
   },
   {
-    "revision": "ed435bd65500c44fe5df",
+    "revision": "727a5c0fce0195eb9ab2",
     "url": "/auto-dialer/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/auto-dialer/static/js/2.2a40476c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ed435bd65500c44fe5df",
-    "url": "/auto-dialer/static/js/main.5edc78f1.chunk.js"
+    "revision": "727a5c0fce0195eb9ab2",
+    "url": "/auto-dialer/static/js/main.45a43d3f.chunk.js"
   },
   {
     "revision": "33a1ea23af4adbd146fc",
