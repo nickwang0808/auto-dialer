@@ -12,7 +12,6 @@ const useStyles = makeStyles({
 });
 
 function Note({ date, content, className }) {
-  const classes = useStyles();
   return (
     <>
       <Box className={className} p={2}>

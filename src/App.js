@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Info from "./components/info";
 import { CssBaseline, Grid, Container, Box } from "@material-ui/core";
 import CallLogs from "./components/calllogs";
@@ -7,7 +7,6 @@ import Logging from "./components/logging";
 import EmailBox from "./components/email";
 import Message from "./components/message";
 import callCustomer from "./testdial";
-import DialBox from "./components/dialbox";
 
 function App() {
   const [loggedNotes, setLoggedNotes] = useState([]);
@@ -25,10 +24,10 @@ function App() {
   useEffect(() => {
     // use local files for now
     const fetchData = async () => {
-      // const response = await fetch(
-      //   "https://storage.googleapis.com/nickwangstorage/jsonfiles/democustomer.json"
-      // );
-      const response = await fetch("customers.json");
+      // something is up, in dev mode, had to add ./custoemr.json for it to work a
+      //and then it just worked all the sudden even without it
+      const response = await fetch("auto-dialer/customers.json");
+      console.log(response);
       const customerList = await response.json();
       setCustomers(customerList);
     };
@@ -38,8 +37,7 @@ function App() {
   useEffect(() => {
     // use local files for now
     const fetchData = async () => {
-      // const response = await fetch("http://localhost:3000/notes");
-      const response = await fetch("notes.json");
+      const response = await fetch("auto-dialer/notes.json");
       const loggedNotes = await response.json();
       setLoggedNotes(loggedNotes);
     };
@@ -50,7 +48,7 @@ function App() {
   const loadNotInt = () => {
     const newNote = {
       date: [date],
-      content: "Not Interested" + "  - Power Dialer",
+      content: "Not Interested    - Power Dialer",
     };
     let loggedNotesCopy = loggedNotes.slice();
     loggedNotesCopy.unshift(newNote);
@@ -60,7 +58,7 @@ function App() {
   const loadCallBack = () => {
     const newNote = {
       date: [date],
-      content: "Call Back needed" + "  - Power Dialer",
+      content: "Call Back needed    -Power Dialer",
     };
     let loggedNotesCopy = loggedNotes.slice();
     loggedNotesCopy.unshift(newNote);
@@ -70,7 +68,7 @@ function App() {
   const loadHungUp = () => {
     const newNote = {
       date: [date],
-      content: "Hung up" + "  - Power Dialer",
+      content: "Hung up    - Power Dialer",
     };
     let loggedNotesCopy = loggedNotes.slice();
     loggedNotesCopy.unshift(newNote);
@@ -80,7 +78,7 @@ function App() {
   const loadWrongNum = () => {
     const newNote = {
       date: [date],
-      content: "Wrong number" + "  - Power Dialer",
+      content: "Wrong number    - Power Dialer",
     };
     let loggedNotesCopy = loggedNotes.slice();
     loggedNotesCopy.unshift(newNote);
@@ -92,6 +90,12 @@ function App() {
     console.log("Next Customer");
     const currentIndexCopy = currentIndex;
     setCurrentIndex(currentIndexCopy + 1);
+  };
+
+  //using vanilaJS atm to update the box.
+  const handleBoxUpdate = (params) => {
+    const callBox = document.querySelector("#box");
+    callBox.innerHTML = params;
   };
 
   // this code calls the current customer and go to next customer
@@ -106,7 +110,11 @@ function App() {
           { num: currentCustomer.Work, attempts: 1 },
         ];
 
-        await callCustomer(currentCustomer.Name, numbersToCall);
+        await callCustomer(
+          currentCustomer.Name,
+          numbersToCall,
+          handleBoxUpdate
+        );
         console.log("this customer is called");
         handleNext();
       }
@@ -146,9 +154,7 @@ function App() {
             </Grid>
 
             <Grid container direction="column" item xs spacing={2}>
-              {/* <Grid item xs>
-                <DialBox callInfo={callInfo} />
-              </Grid> */}
+              <Grid item xs></Grid>
 
               <Grid item xs>
                 <Logging

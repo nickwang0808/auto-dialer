@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, Grid, Button, TextField, ButtonGroup } from "@material-ui/core";
 
 function Logging(props) {
-  const [callNote, setCallNote] = useState();
-
   return (
     <>
       <Box padding={2}>

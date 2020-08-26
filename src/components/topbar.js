@@ -8,7 +8,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import PlayCircleFilled from "@material-ui/icons/PlayCircleFilled";
 import PauseCircleFilled from "@material-ui/icons/PauseCircleFilled";
 import { grey } from "@material-ui/core/colors";
-import { Box, Button } from "@material-ui/core";
+import { Box, Button, Hidden } from "@material-ui/core";
 import "animate.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -32,23 +32,25 @@ export default function TopBar({
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar variant="dense">
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="body1" color="inherit">
-            Dashboard
-          </Typography>
+          <Hidden xsDown>
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="menu"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="body1" color="inherit">
+              Dashboard
+            </Typography>
+          </Hidden>
           <Box className={classes.root} />
-          <Box className="animate__animated animate__pulse animate__infinite">
-            {callStatus
-              ? "calling, press cltr + shft + J to view call logs"
-              : ""}
-          </Box>
+          <Box
+            fontSize={16}
+            className="animate__animated animate__pulse animate__infinite"
+            id="box"
+          ></Box>
           <IconButton onClick={handleStart}>
             <PlayCircleFilled style={{ color: grey[50] }} />
           </IconButton>

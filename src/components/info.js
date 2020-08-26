@@ -14,7 +14,7 @@ function Info({ customer }) {
             <Grid container direction="column" item xs spacing={0}>
               <Box>{`Cell: ${customer.Cell}`}</Box>
               <Box>{`Home: ${customer.Home}`}</Box>
-              <Box>{`Cell: ${customer.Work}`}</Box>
+              <Box>{`Work: ${customer.Work}`}</Box>
             </Grid>
             <Grid container direction="column" item xs spacing={0}>
               <Box>{`Address: ${customer.Address}`}</Box>
